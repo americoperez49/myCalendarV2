@@ -22,8 +22,8 @@ export class HomeComponent implements OnInit {
   signOutButtonVisible = false;
 
   CLIENT_ID =
-    '598511963090-ktvjq2guj4fvcq9th4ihg9hgd1e6418o.apps.googleusercontent.com';
-  API_KEY = 'AIzaSyA-4p7oWPczYRGk6Id7BdiZcmMeP960F6o';
+    "Your-Client-ID";
+  API_KEY = 'Your-API-Key';
 
   // Array of API discovery doc URLs for APIs used by the quickstart
   DISCOVERY_DOCS = [
