@@ -1,0 +1,58 @@
+/* Thick red border */
+hr {
+  border: 5px solid red;
+  width: 100%;
+}
+
+.example-card {
+  max-width: 400px;
+  margin: 5px;
+}
+
+.example-header-image {
+  background-image: url("https://material.angular.io/assets/img/examples/shiba1.jpg");
+  background-size: cover;
+}
+
+.useFlex {
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+}
+
+.useFlexOtherContent {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.big-card {
+  display: flex;
+  margin: 10px;
+  background: darkorange;
+  flex-wrap: wrap;
+}
+
+button {
+  margin: 5px;
+}
+.red {
+  color: red;
+}
+.green {
+  color: green;
+}
+.orange {
+  color: orange;
+}
+
+.myclass {
+  display: grid;
+  justify-content: center;
+}
+
+.signInButton{
+  position: fixed; /* or absolute */
+  top: 25%;
+  left: 50%;
+}

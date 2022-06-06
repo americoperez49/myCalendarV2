@@ -1,0 +1,123 @@
+<!-- <div *ngIf="!this.accessToken; else elseBlock">
+
+  <button pButton pRipple type="button" label="Sign in" class="p-button-raised p-button-text" (click)="grantAccess()" icon="pi pi-google"></button>
+</div>
+
+<ng-template #elseBlock>Content to render when condition is false.</ng-template> -->
+
+
+<button *ngIf="signInButtonVisible; else main" id="signin_button" pButton pRipple type="button" label="Sign in" class="p-button-raised p-button-text signInButton" (click)="handleAuthClick()" icon="pi pi-google"></button>
+
+<ng-template #main>
+  <main>
+    <div class="myclass">
+      <h3>Google Calendar + Firebase</h3>
+      <!-- <div *ngIf="auth.user$ | async as user">
+      <h3>logged in as {{ user.displayName }}</h3>
+      <img src="{{ user.photoURL }}" width="50px" />
+    </div> -->
+      <!--
+    <button mat-raised-button color="primary" (click)="auth.login()">
+      Login
+    </button>
+    <button mat-raised-button color="primary" (click)="auth.logout()">
+      logout
+    </button>
+    <hr /> -->
+      <input
+        matInput
+        placeholder="Money Currently in Bank"
+        [(ngModel)]="currentMoney"
+      />
+      <br />
+      <input
+        matInput
+        placeholder="weeks to calculate for"
+        [(ngModel)]="weeks"
+      />
+      <br />
+      <button mat-raised-button color="primary" (click)="getCalender()">
+        Get Calendar
+      </button>
+      <button mat-raised-button color="primary" (click)="insertEvent()">
+        Insert
+      </button>
+      <button
+        mat-raised-button
+        color="primary"
+        (click)="deleteAllorangeEvents()"
+      >
+        Delete
+      </button>
+      <ng-container></ng-container>
+      <button
+        mat-raised-button
+        color="primary"
+        (click)="showAll = !showAll"
+      >
+        {{ showAll == true ? "Only Show Orange" : "Show All" }}
+      </button>
+    </div>
+    <ng-container *ngIf="showAll == true; else other_content">
+      <div class="useFlex" *ngFor="let item of calenderItems">
+        <mat-card class="big-card useFlex">
+          <ng-container *ngFor="let subitem of item">
+            <mat-card
+              class="example-card"
+              [ngClass]="{
+                red: subitem.colorId === '11',
+                green: subitem.colorId === '2',
+                orange: subitem.colorId === '6'
+              }"
+            >
+              <mat-card-header>
+                <div mat-card-avatar class="example-header-image"></div>
+                <mat-card-title
+                  >{{ subitem.summary }}-{{ subitem.status }}-{{
+                    subitem.colorId
+                  }}</mat-card-title
+                >
+                <mat-card-subtitle>{{
+                  subitem.start.date || subitem.start.dateTime
+                }}</mat-card-subtitle>
+              </mat-card-header>
+            </mat-card>
+          </ng-container>
+        </mat-card>
+      </div>
+    </ng-container>
+    <ng-template #other_content>
+      <div class="useFlexOtherContent">
+        <div class="useFlex" *ngFor="let item of calenderItems">
+          <mat-card class="big-card useFlex">
+            <ng-container *ngFor="let subitem of item">
+              <ng-container *ngIf="subitem.colorId === '6'">
+                <mat-card
+                  class="example-card"
+                  [ngClass]="{
+                    red: subitem.colorId === '11',
+                    green: subitem.colorId === '2',
+                    orange: subitem.colorId === '6'
+                  }"
+                >
+                  <mat-card-header>
+                    <div mat-card-avatar class="example-header-image"></div>
+                    <mat-card-title
+                      >{{ subitem.summary }}-{{ subitem.status }}-{{
+                        subitem.colorId
+                      }}</mat-card-title
+                    >
+                    <mat-card-subtitle>{{
+                      subitem.start.date || subitem.start.dateTime
+                    }}</mat-card-subtitle>
+                  </mat-card-header>
+                </mat-card>
+              </ng-container>
+            </ng-container>
+          </mat-card>
+        </div>
+      </div>
+    </ng-template>
+  </main>
+
+</ng-template>
